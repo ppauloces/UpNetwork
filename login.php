@@ -1,25 +1,33 @@
 <?php
 
-if(isset($_POST['submit']) && !empty($_POST['emailSession']) && !empty($_POST['senhaSession'])){
+session_start();
 
-  include_once('conexao.php');
-  $emaillog = $_POST['emailSession'];
-  $senhalog = $_POST['senhaSession'];
+include_once("conexao.php");
 
-  //print_r('Email: ' . $emaillog);
-  //print_r('Senha: ' . $senhalog);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
-  $sql = "SELECT * FROM usuarios WHERE emailSession = '$emaillog' and senhaSession = '$senhalog'";
+$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
-  $result = $conexao->query($sql);
 
-  if(mysqli_num_rows($result) < 1){
-    print_r("Não existe");
-  }else{
-   print_r("existe"); 
-  }
 
+    $result_usuarios = "SELECT * FROM usuarios WHERE email = '$email' AND '$senha'";
+    $result_usuario = mysqli_query($conexao, $result_usuarios);
+    $total_usuarios = mysqli_num_rows($result_usuario);
+
+if(mysqli_num_rows($result_usuario) < 1){
+    echo "as senhas não correspondem";
 
 }else{
-  header('Location: login.html');
+    $result_usuarios = "INSERT INTO usuarios (email, senha, created) VALUES ('$email', '$senha', NOW())";
+    $result_usuario = mysqli_query($conexao, $result_usuarios);
+    
+    
+    echo "Login realizado com sucesso!";
+    
+    echo "<script>setTimeout(function() { window.location.href = 'sucesso.php'; }, 2000);</script>";
+    
+
+  
+
 }
+

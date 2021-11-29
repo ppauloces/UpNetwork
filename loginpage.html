@@ -196,6 +196,9 @@ form .btn input[type="submit"]{
 		</style>
 		<div class="wrapper">
 			<div class="title-text">
+			   <div class="title login">
+				  Login
+			   </div>
 			   <div class="title signup">
 				  Criar conta
 			   </div>
@@ -203,22 +206,25 @@ form .btn input[type="submit"]{
 			   <div class="form-inner">
 
 
-				  <form method="POST" action="banco/cadastro.php" class="signup" id="target">
-					 <div class="field">
-						<input type="text" name="email" placeholder="Email" required>
-					 </div>
-					 <div class="field">
-						<input type="password" name="senha" id="senha" placeholder="Senha" required>
-					 </div>
-					 <div class="field">
-						<input type="password" name="senha1" id="senha" placeholder="Confirmar senha" required>
-					 </div>
-					 <div class="field btn">
-						<div class="btn-layer"></div>
-						<input type="submit" value="Criar conta">
-					 </div>
-           <div id="linkResultado"></div>
-				  </form>
+                <form method="POST" action="login.php" class="login" id="login">
+                    <div class="field">
+                       <input type="text" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="field">
+                       <input type="password" name="senha" placeholder="Senha" required>
+                    </div>
+                    <div class="pass-link">
+                       <a href="index.html">Esqueceu sua senha?</a>
+                    </div>
+                    <div class="field btn">
+                       <div class="btn-layer"></div>
+                       <input type="submit" name="submit" value="Login">
+                    <div id="linkResultado1"></div>
+                    </div>
+                    <div class="signup-link">
+                       Não tem conta? <a href="">Crie uma agora!</a>
+                    </div>
+                 </form>
           
 			   </div>
 			</div>
@@ -244,43 +250,13 @@ form .btn input[type="submit"]{
                 data: dados,
                 success: function (data)
                 {
-                    $("#linkResultado").html(data);
+                    $("#linkResultado1").html(data);
                 }
             });
             return false;
         });
       </script>
 
-
-      <script>
-        jQuery('#target').submit(function () {
-            event.preventDefault();
-            var dados = jQuery(this).serialize();
-            jQuery.ajax({
-                type: "POST",
-                url: "cadastro.php",
-                data: dados,
-                success: function (data)
-                {
-                    $("#linkResultado").html(data);
-                }
-            });
-            return false;
-        });
-    </script>
-
-
-
-
-
-     
-     
-     <script>
-      $( "#target1" ).submit(function( event ) {
-      alert( "Handler for .submit() called." );
-      event.preventDefault();
-      });
-    </script>
 		 <script>
        
 			const loginText = document.querySelector(".title-text .login");
@@ -304,3 +280,23 @@ form .btn input[type="submit"]{
 		
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				  

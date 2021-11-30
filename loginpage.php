@@ -1,4 +1,7 @@
-<!DOCTYPE HTML>
+<?php
+    session_start();
+?>
+
 <html>
 	<head>
 		<title>Iniciar sessão - UpNetwork</title>
@@ -30,10 +33,9 @@ html,body{
   color: #fff;
 }
 .wrapper{
-  overflow: hidden;
   max-width: 390px;
   background: #fff;
-  padding: 30px;
+  padding: 60px;
   border-radius: 5px;
   box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 }
@@ -199,12 +201,9 @@ form .btn input[type="submit"]{
 			   <div class="title login">
 				  Login
 			   </div>
-			   <div class="title signup">
-				  Criar conta
-			   </div>
 			</div>
+      <br>
 			   <div class="form-inner">
-
 
                 <form method="POST" action="login.php" class="login" id="login">
                     <div class="field">
@@ -222,10 +221,21 @@ form .btn input[type="submit"]{
                     <div id="linkResultado1"></div>
                     </div>
                     <div class="signup-link">
-                       Não tem conta? <a href="">Crie uma agora!</a>
+                       Não tem conta? <a href="login.html">Crie uma agora!</a>
                     </div>
                  </form>
-          
+                 <p style="text-align: center; color: red;">
+                      <?php
+                      if(isset($_SESSION['loginErro']))
+                      {
+                        echo $_SESSION['loginErro'];
+                        unset($_SESSION['loginErro']);
+                      }
+                      
+                      ?>
+                    </p>
+                 
+                 
 			   </div>
 			</div>
 		 </div>
@@ -240,22 +250,7 @@ form .btn input[type="submit"]{
 			<script src="assets/js/main.js"></script>
      
 
-      <script>
-        jQuery('#login').submit(function () {
-            event.preventDefault();
-            var dados = jQuery(this).serialize();
-            jQuery.ajax({
-                type: "POST",
-                url: "login.php",
-                data: dados,
-                success: function (data)
-                {
-                    $("#linkResultado1").html(data);
-                }
-            });
-            return false;
-        });
-      </script>
+     
 
 		 <script>
        
@@ -280,23 +275,3 @@ form .btn input[type="submit"]{
 		
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				  

@@ -205,7 +205,7 @@ form .btn input[type="submit"]{
       <br>
 			   <div class="form-inner">
 
-                <form method="POST" action="login.php" class="login" id="login">
+                <form method="POST" action="" class="login" id="login">
                     <div class="field">
                        <input type="text" name="email" placeholder="Email" required>
                     </div>
@@ -218,27 +218,18 @@ form .btn input[type="submit"]{
                     <div class="field btn">
                        <div class="btn-layer"></div>
                        <input type="submit" name="submit" value="Login">
-                    <div id="linkResultado1"></div>
                     </div>
                     <div class="signup-link">
                        Não tem conta? <a href="login.html">Crie uma agora!</a>
                     </div>
                  </form>
-                 <p style="text-align: center; color: red;">
-                      <?php
-                      if(isset($_SESSION['loginErro']))
-                      {
-                        echo $_SESSION['loginErro'];
-                        unset($_SESSION['loginErro']);
-                      }
-                      
-                      ?>
-                    </p>
+                 <div id="linkResultado"></div>
                  
                  
 			   </div>
 			</div>
 		 </div>
+
 
      		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -250,7 +241,22 @@ form .btn input[type="submit"]{
 			<script src="assets/js/main.js"></script>
      
 
-     
+     <script>
+        jQuery('#login').submit(function () {
+            event.preventDefault();
+            var dados = jQuery(this).serialize();
+            jQuery.ajax({
+                type: "POST",
+                url: "login.php",
+                data: dados,
+                success: function (data)
+                {
+                    $("#linkResultado").html(data);
+                }
+            });
+            return false;
+        });
+    </script>
 
 		 <script>
        

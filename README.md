@@ -6,6 +6,8 @@ Além de criar um visual incrível para sua empresa, trazemos público através 
 
 <h3>Updates:
 
+##
+ 
 (28/11/2021):
 
 • Limpamos o código colocando tudo em uma página só, melhorando na navegação.

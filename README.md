@@ -6,8 +6,17 @@ Além de criar um visual incrível para sua empresa, trazemos público através 
 
 <h3>Updates:
 
+##
+ 
 (28/11/2021):
 
 • Limpamos o código colocando tudo em uma página só, melhorando na navegação.
 
 • Primeiro teste com back end com o cadastro funcional, porém, a session no login dando dor de cabeça.
+
+##
+ 
+(30/11/2021):
+
+• Depois de DIAS fazendo a tela de login e cadastro, ela funcionou.
+

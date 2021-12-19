@@ -212,7 +212,7 @@
 							<section id="contato">
 								<section class="box">
 									<h3>Dúvidas? Mande um email para nós. Reponderemos o mais rápido possível.</h3>
-									<form method="post" action="contato.php">
+									<form method="POST" action="contato.php" id="target">
 										<div class="row gtr-uniform gtr-50">
 											<div class="col-6 col-12-mobilep">
 												<input type="text" class="field" name="name" id="name" value="" placeholder="Nome" />
@@ -223,9 +223,9 @@
 											<div class="col-12">
 												<select name="category" id="category">
 													<option value="">- Categorias -</option>
-													<option value="1">Suporte</option>
-													<option value="1">Método de pagamento</option>
-													<option value="1">Planos</option>
+													<option value="Suporte">Suporte</option>
+													<option value="Método de pagamento">Método de pagamento</option>
+													<option value="Planos">Planos</option>
 												</select>
 											</div>
 											<div class="col-6 col-12-narrower">
@@ -240,7 +240,9 @@
 													<li><input class="field" type="submit" value="Enviar" /></li>
 													<li><input type="reset" value="Limpar" class="alt" /></li>
 												</ul>
+												<div id="linkResultado"></div>
 											</div>
+											
 										</div>
 									</form>
 
@@ -289,3 +291,21 @@
 
 	</body>
 </html>
+
+
+<script>
+	jQuery('#target').submit(function () {
+		event.preventDefault();
+		var dados = jQuery(this).serialize();
+		jQuery.ajax({
+			type: "POST",
+			url: "contato.php",
+			data: dados,
+			success: function (data)
+			{
+				$("#linkResultado").html(data);
+			}
+		});
+		return false;
+	});
+</script>

@@ -20,3 +20,8 @@ Além de criar um visual incrível para sua empresa, trazemos público através 
 
 • Depois de DIAS fazendo a tela de login e cadastro, ela funcionou.
 
+ ##
+ 
+(19/12/2021):
+
+• Parte de formulário funcionando, só preciso criar uma porta FTP funcional.

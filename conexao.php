@@ -1,9 +1,11 @@
 <?php
 
+$painel = "Painel Administrativo";
+
 $servidor = "localhost";
 $usuario = "root";
 $senha = "";
-$dbname = "cadastro";
+$dbname = "drwatson";
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $dbname);
 

@@ -38,7 +38,6 @@
 									<li><a href="#portifolio">Portifólio</a></li>
 									<li><a href="#sobre">Sobre nós</a></li>
 									<li><a href="#contato">Contato</a></li>
-									
 								</ul>
 							</li>
 
@@ -100,21 +99,45 @@
 				
 				<br><br><br><br>
 
-				<!--<section id="portifolio" class="container">
+				<section id="portifolio" class="container">
 
-					<section class="box special">
-						<header class="major">
-							<h2>Nosso portifólio
-							<p>A UpNetwork possui qualquer modelo de site para seu ramo! Seja um e-commerce, delierys, lojas de roupas e etc.</p>
-						</header>
+				<div class="popup">
+    <div class="title-text">
+		<div style="text-align: left; font-size: 38px; font-family: Source Sans Pro, sans-serif;" class="title login">
+		   Login
+		</div>
+		<div class="close"><i style="text-align: end;" class="uil uil-times"></i></div>
+	 </div>
+	 <br>
+    <div class="form-inner">
+
+		<form method="POST" action="login.php" class="login" id="login">
+			<div class="field">
+			   <input type="text" name="emailusu" placeholder="Email" required>
+			</div>
+			<div class="field">
+			   <input type="password" name="senhausu" placeholder="Senha" required>
+			</div>
+			<div class="pass-link">
+			   <a href="index.html">Esqueceu sua senha?</a>
+			</div>
+			<div class="field">
+			   <input type="submit" name="submit" value="Login">
+			</div>
+			<div id="linkResultado1"></div>
+			<div class="signup-link">
+			   Já é nosso cliente? Acesse seu painel administrativo!
+			</div>
+		 </form>
+	   </div>
+  </div>
+
+  
 
 						
 
-					</section>-->
+					</section>
 
-				
-				<br><br><br><br>
-				<br><br><br><br>
 
 			<section id="sobre">
 				<section id="main"  class="container">
@@ -327,39 +350,7 @@
 </script>
 
 
-<div class="popup">
-    <div class="title-text">
-		<div style="text-align: left; font-size: 38px; font-family: Source Sans Pro, sans-serif;" class="title login">
-		   Login
-		</div>
-		<div class="close"><i style="text-align: end;" class="uil uil-times"></i></div>
-	 </div>
-	 <br>
-    <div class="form-inner">
 
-		<form method="POST" action="login.php" class="login" id="login">
-			<div class="field">
-			   <input type="text" name="emailusu" placeholder="Email" required>
-			</div>
-			<div class="field">
-			   <input type="password" name="senhausu" placeholder="Senha" required>
-			</div>
-			<div class="pass-link">
-			   <a href="index.html">Esqueceu sua senha?</a>
-			</div>
-			<div class="field">
-			   <input type="submit" name="submit" value="Login">
-			</div>
-			<div id="linkResultado1"></div>
-			<div class="signup-link">
-			   Já é nosso cliente? Acesse seu painel administrativo!
-			</div>
-		 </form>
-		
-		 
-		 
-	   </div>
-  </div>
 
   <script>
         jQuery('#login').submit(function () {
@@ -396,6 +387,7 @@
       viewBtn.click();
     }
   </script>
+
 
   <style>
 	::selection{
